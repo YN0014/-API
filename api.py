@@ -2,7 +2,6 @@ import falcon
 import json
 import datetime
 from sirasuna import html_get
-import datetime
 
 
 def fileRead(req_day):
