@@ -17,6 +17,7 @@ def fileRead(req_day):
         if not int(line[0]) == today.month or not int(line[1]) == today.day:
             if count == 0:
                 html_get()
+                count = 1
             elif count == 1:
                 return 1
         fp.close()
