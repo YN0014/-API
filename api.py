@@ -47,7 +47,6 @@ def fileRead(req_day):
             map(lambda x: x.replace(' ', ''), kondate_list[idx]))
         kondate_list[idx] = list(
             map(lambda x: x.replace('　', ' '), kondate_list[idx]))
-        kondate_list[idx].pop()
 
     fp.close()
     return kondate_list
