@@ -3,7 +3,6 @@ import json
 import datetime
 from sirasuna import html_get
 
-
 def fileRead(req_day):
     for count in range(2):
         fp = open('kondate_1.txt')
