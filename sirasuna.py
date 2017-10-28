@@ -3,7 +3,6 @@ import codecs
 import re
 import datetime
 
-
 def html_get():
     url = "http://shirasunaryou.sakura.ne.jp/cgi-bin/shirasuna/kondate/index.cgi?display=sp"
     title = "kondate_html.txt"
