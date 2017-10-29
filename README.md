@@ -5,11 +5,12 @@
 ## 利用方法
 http://nityc-nyuta.work/sirasuna_kondateAPI/[type]?day=[day]
 
-- **type** ... {breakfast, lunch, dinner}の三種類が使えます。それぞれ朝食・昼食・夕食に対応しています。
+- **type** ... {all,breakfast, lunch, dinner}の三種類が使えます。それぞれ全取得,朝食・昼食・夕食に対応しています。
 - **day**  ... 0 ~ 4の値が使えます。0を指定するとその日の献立が、その他の数字は指定された日時後の献立が取得できます。 **※0未満や5以上の数字を指定した場合は自動的に0に変換されます**  
 >例：http://nityc-nyuta.work/sirasuna_kondateAPI/breakfast?day=2 --- **2日後の朝食**
 
 ## JSONファイルの形式
+- **code** : 0...正常, 1...URLエラー, 2...サーバ内部エラー, 3...情報取得エラー
 - **title** : {朝食, 昼食, 夕食} でリクエストされた内容に合う文字列が入ります
 - **date** : 日時が入ります (例 : 12/31)
 - **menu** : 献立が入ります(配列)
