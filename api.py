@@ -2,6 +2,7 @@ import falcon
 import json
 import datetime
 from sirasuna import html_get
+import datetime
 
 
 def fileRead(req_day):
@@ -56,7 +57,11 @@ class ItemsResource:
     def on_get(self, req, resp, isbn):
         params = req.params
         if "day" in params:
-            value = int(params["day"])
+            try:
+                value = int(params["day"])
+            except ValueError:
+                isbn = 'error'
+                value = 0
         else:
             value = 0
         if value < 0 or value > 4:
@@ -72,32 +77,55 @@ class ItemsResource:
         global items
         if isbn == "breakfast":
             items = {
+                'code': 0,
                 'title': '朝食',
                 'date': str(month) + '/' + str(day),
                 'menu': kondate_list[0][:]
             }
         elif isbn == "lunch":
             items = {
+                'code': 0,
                 'title': '昼食',
                 'date': str(month) + '/' + str(day),
                 'menu': kondate_list[1][:]
             }
         elif isbn == "dinner":
             items = {
+                'code': 0,
                 'title': '夕食',
                 'date': str(month) + '/' + str(day),
                 'menu': kondate_list[2][:]
             }
+        elif isbn == "all":
+            items = {
+                'code': 0,
+                'title': 'All',
+                'date': str(month) + '/' + str(day),
+                'menu': {
+                    'breakfast': kondate_list[0][:],
+                    'lunch': kondate_list[1][:],
+                    'dinner': kondate_list[2][:]
+                }
+            }
         elif isbn == "notfound":
             items = {
+                'code': 1,
                 'errors': {
-                    'message': "Sorry, could not get the latest information."
+                    'message': "最新の情報が取得できませんでした"
+                }
+            }
+        elif isbn == "error":
+            items = {
+                'code': 2,
+                'errors': {
+                    'message': "サーバ内部でエラーが発生しました"
                 }
             }
         else:
             items = {
+                'code': 3,
                 'errors': {
-                    'message': "Sorry, this url does not exit."
+                    'message': "指定されたURLは見つかりませんでした"
                 }
             }
 
