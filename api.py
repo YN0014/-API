@@ -74,7 +74,7 @@ class ItemsResource:
         month = int(today.month)
         day = int(today.day)
 
-        global items
+        items = {}
         if isbn == "breakfast":
             items = {
                 'code': 0,
