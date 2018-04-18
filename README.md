@@ -3,11 +3,13 @@
 リクエストされた日時/時間帯の弓削商船高等専門学校白砂寮（以下、白砂寮）の献立をJSONファイルによって返します。  
 
 ## 利用方法
-http://nityc-nyuta.work/sirasuna_kondateAPI/[type]?day=[day]
+http://nityc-nyuta.work/sirasuna_kondateAPI_prototype/all?year=[year]&month=[month]&day=[day]
 
-- **type** ... {all,breakfast, lunch, dinner}の三種類が使えます。それぞれ全取得,朝食・昼食・夕食に対応しています。
-- **day**  ... 0 ~ 4の値が使えます。0を指定するとその日の献立が、その他の数字は指定された日時後の献立が取得できます。 **※0未満や5以上の数字を指定した場合、または文字などが入力された場合は自動的に0に変換され処理されます。**  
->例：http://nityc-nyuta.work/sirasuna_kondateAPI/breakfast?day=2 --- **2日後の朝食**
+- **year** ... 取得したい年月日の年 (西暦)
+- **month** ... 取得したい年月日の月 (1~12)
+- **day** ...　取得したい年月日の日 (1~31)
+
+>例：https://nityc-nyuta.work/sirasuna_kondateAPI_prototype/all?year=2018&month=2&day=1 --- **2018年2月1日の献立**
 
 ## JSONファイルの形式
 - **code** : 0...正常, 1...URLエラー, 2...サーバ内部エラー, 3...情報取得エラー
